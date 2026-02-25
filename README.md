@@ -8,6 +8,13 @@ This project includes two distinct resume layouts to suit different application 
 * **Modern (`Resume_modern.tex`):** A contemporary layout featuring a side-by-side header with a profile photo.
 * **Classic (`Resume_classic.tex`):** A traditional, highly streamlined layout without a profile photo, ideal for standard corporate applications or regions with strict anti-bias photo regulations.
 
+## 📋 Preview
+
+| Modern Format (with photo) | Classic Format (no photo) |
+| :---: | :---: |
+| <img src="preview_modern.png" alt="Modern Resume Preview" width="400"/> | <img src="preview_classic.png" alt="Classic Resume Preview" width="400"/> |
+
+
 ## ✨ Key Features
 
 * **ATS-Friendly:** Includes `glyphtounicode` mapping to ensure Applicant Tracking Systems can parse the PDF text accurately.
