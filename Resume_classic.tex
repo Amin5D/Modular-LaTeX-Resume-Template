@@ -1,0 +1,125 @@
+%----------------------------------------------------------------------------------------
+%	DOCUMENT CONFIGURATION
+%----------------------------------------------------------------------------------------
+\documentclass[11pt]{article}           % Main text size is 11pt
+
+% Page margin setup
+\usepackage[a4paper,                    % Paper size (use letterpaper for US resumes)
+            top=1.27cm,                 % Top margin
+            bottom=1.27cm,              % Bottom margin
+            left=1.27cm,                % Left margin
+            right=1.27cm                % Right margin
+           ]{geometry}
+
+%----------------------------------------------------------------------------------------
+%	FONTS AND ENCODING
+%----------------------------------------------------------------------------------------
+% Set font to Helvetica (Sans-Serif) for a modern, clean look
+\usepackage[scaled]{helvet}             % Helvetica font package (scaled)
+\renewcommand\familydefault{\sfdefault} % Use sans-serif as default font family
+\usepackage[T1]{fontenc}                % Output font encoding (important for special chars)
+\usepackage[utf8]{inputenc}             % Input encoding (UTF-8)
+% \usepackage{fontspec}
+% \setmainfont{Calibri} 
+% \usepackage{XCharter}                 % comment this line out if you want to use the default LaTeX font Computer Modern
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES
+%----------------------------------------------------------------------------------------
+\usepackage{xcolor}                     % Required for custom colors
+\usepackage[explicit]{titlesec}         % Allows advanced section title formatting
+\usepackage{graphicx}                   % Enables image inclusion
+\usepackage{enumitem}                   % Customizes lists (bullet points)
+\usepackage[hidelinks]{hyperref}        % Enables clickable links without ugly borders
+\usepackage{amsmath}                    % Mathematical symbols (if needed)
+%----------------------------------------------------------------------------------------
+%	GLOBAL PAGE STYLES
+%----------------------------------------------------------------------------------------
+\raggedright                            % Disable text justification (better for columns/CVs)
+\pagestyle{empty}                       % Disable page numbering
+
+% Ensure PDF output is machine-readable (ATS friendly)
+\input{glyphtounicode}
+\pdfgentounicode=1
+
+%----------------------------------------------------------------------------------------
+%	SECTION FORMATTING
+%----------------------------------------------------------------------------------------
+% Format the section headers
+\titleformat{\section}
+  {\bfseries\large}           % Font styling: Bold and Large
+  {}                          % Label: Empty (removes numbering like "1.")
+  {0pt}                       % Separation: No space between label and title
+  {
+    \MakeUppercase{#1}        % THE TITLE: The actual section name (e.g., "EXPERIENCE")
+  }                                 
+  [\vspace{1pt}\titlerule]    % After-code: adds a horizontal line with spacing
+
+% Adjust spacing around sections: {Command}{Left Indent}{Space Before}{Space After}
+\titlespacing*{\section}
+  {0pt}   % Left Indent: 0pt keeps it aligned with the left margin
+  {7pt}   % Space Before: The vertical gap above the colored box
+  {4pt}   % Space After: The vertical gap between the colored box and the text below
+%----------------------------------------------------------------------------------------
+%	LIST/BULLET POINT FORMATTING
+%----------------------------------------------------------------------------------------
+% Redefine the symbol for the first level of itemized lists (Change the bullet point symbol)
+\renewcommand\labelitemi{%
+  % Enter math mode ($...$) to use vertical centering tools
+  $%
+    \vcenter{%             % Vertically align the content inside to the math axis (center of line)
+      \hbox{%              % Create a horizontal box to hold the text/symbol
+        \small             % Make the bullet slightly smaller than the text for a cleaner look
+        $\bullet$%         % The actual bullet symbol
+      }%
+    }%
+  $%
+}
+
+% Global settings for itemize lists (tighten spacing). Requires: \usepackage{enumitem}
+\setlist[itemize]{
+  itemsep=-2pt,    % Vertical space BETWEEN items. Negative value pulls items closer together (compact).
+  leftmargin=25pt, % Horizontal indent from the left edge of the text area.
+  topsep=3pt       % Vertical space ABOVE the first item (separation from the paragraph above).
+}
+
+%----------------------------------------------------------------------------------------
+%	MAIN DOCUMENT
+%----------------------------------------------------------------------------------------
+\begin{document}
+
+% --- HEADER SECTION ---
+% This layout is a single column, centered stack (Name on top, links below).
+\noindent % Prevents paragraph indentation so the centering is exact.
+
+% 1. NAME
+% \centerline forces the content to be centered on a single line.
+% Note: \centerline is rigid; if the text is too long, it will run off the page instead of wrapping.
+\centerline{\Huge Muhammad Al-Khwarizmi}
+
+
+\vspace{5pt} % Adds a small vertical buffer between Name and Contact Info
+
+% 2. CONTACT INFO
+% This line combines Email, Portfolio, and GitHub with pipes (|) as separators.
+\centerline{%
+    \href{mailto:scholar@houseofwisdom.iq}{scholar@houseofwisdom.iq} $|$ % Clickable Email
+    \href{https://en.wikipedia.org/wiki/Al-Khwarizmi}{wikipedia.org/wiki/Al-Khwarizmi} $|$   % Clickable Portfolio
+    \href{https://github.com/father-of-algebra}{github.com/father-of-algebra} $|$ % Clickable GitHub
+    +964 000 12345 % Phone number 
+}
+
+
+\vspace{4pt} % Adjust space between the Header and the start of the Resume body
+% \hrule % Uncomment if you want a horizontal line after the header for separation
+
+% --- CONTENT SECTIONS ---
+% These load external .tex files. Ensure these files exist in a "Sections" folder.
+\input{Sections/Objective.tex}
+\input{Sections/Education}
+\input{Sections/Experience}
+\input{Sections/Projects}
+\input{Sections/Skills}
+\input{Sections/Interests}
+
+\end{document}
